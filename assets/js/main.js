@@ -1,11 +1,11 @@
-fetch("../../components/header.html")
+fetch("./components/header.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("header").innerHTML = data;
   })
   .catch((error) => console.error("Error loading header:", error));
 
-fetch("../../components/hero.html")
+fetch("./components/hero.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("hero").innerHTML = data;
@@ -18,7 +18,7 @@ const tabContentsData = [
   "While you're on holiday, here's where your furry friends will spend their time 3.",
 ];
 
-fetch("../../components/about.html")
+fetch("./components/about.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("about").innerHTML = data;
