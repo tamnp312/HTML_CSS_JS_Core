@@ -125,66 +125,72 @@ fetch("../../components/services.html")
     document.getElementById("services").innerHTML = data;
 
     const serviceItemsWrapper1 = document.querySelector(".service__column1");
-    serviceItemsWrapper1.innerHTML = serviceItemsData.slice(0, 3).map((item) => {
-      return ` 
+    serviceItemsWrapper1.innerHTML = serviceItemsData
+      .slice(0, 3)
+      .map((item) => {
+        return ` 
        <article class="service__item"> 
         <h3 class="service__item--heading">${item.title}</h3>
         <p class="service__item--desc">${item.description}</p>
         <a href="${item.link}" class="service__item--more">Read more</a>
        </article>
       `;
-    }).join('');
+      })
+      .join("");
 
     const serviceItemsWrapper2 = document.querySelector(".service__column2");
-    serviceItemsWrapper2.innerHTML = serviceItemsData.slice(3).map((item) => {
-      return ` 
+    serviceItemsWrapper2.innerHTML = serviceItemsData
+      .slice(3)
+      .map((item) => {
+        return ` 
        <article class="service__item"> 
         <h3 class="service__item--heading">${item.title}</h3>
         <p class="service__item--desc">${item.description}</p>
         <a href="${item.link}" class="service__item--more">Read more</a>
        </article>
       `;
-    }).join('');
+      })
+      .join("");
   })
   .catch((error) => {
     console.error("Error loading services:", error);
   });
 
+// staff
+const staffData = [
+  {
+    id: 1,
+    imgSrc: "./assets/img/staff01.png",
+    title: "Pet Trainer",
+    name: "Meghan Samit",
+  },
+  {
+    id: 2,
+    imgSrc: "./assets/img/staff02.png",
+    title: "Veterinarian",
+    name: "Alissa Silva",
+  },
+  {
+    id: 3,
+    imgSrc: "./assets/img/staff03.png",
+    title: "Veterinarian",
+    name: "Cindy Harris",
+  },
+  {
+    id: 4,
+    imgSrc: "./assets/img/staff04.png",
+    title: "Animal Caretaker",
+    name: "Lucas Tony",
+  },
+];
+fetch("../../components/staff.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("staff").innerHTML = data;
 
-  // staff 
-  const staffData = [
-    {
-      id: 1,
-      imgSrc: "./assets/img/staff01.png",
-      title: "Pet Trainer",
-      name: "Meghan Samit"
-    },
-    {
-      id: 2,
-      imgSrc: "./assets/img/staff02.png",
-      title: "Veterinarian",
-      name: "Alissa Silva"
-    },
-    {
-      id: 3,
-      imgSrc: "./assets/img/staff03.png",
-      title: "Veterinarian",
-      name: "Cindy Harris"
-    },
-    {
-      id: 4,
-      imgSrc: "./assets/img/staff04.png",
-      title: "Animal Caretaker",
-      name: "Lucas Tony"
-    }
-  ];
-  fetch("../../components/staff.html")
-    .then( response => response.text())
-    .then (data => {
-      document.getElementById("staff").innerHTML = data; 
-
-      const staffListList = document.querySelector(".staff__list");
-      staffListList.innerHTML = staffData.map( (staff) => {
+    const staffListList = document.querySelector(".staff__list");
+    staffListList.innerHTML = staffData
+      .map((staff) => {
         return `
         <article class = staff__item> 
           <figure class ="staff__item--img">
@@ -192,9 +198,86 @@ fetch("../../components/services.html")
           </figure>
           <p class = "staff__item--title">${staff.title}</p>
           <h3 class = "staff__item--name" >${staff.name}</h3>
-        </article>`
-      }).join("");
-    })
-    .catch(error => {
-      console.error("Error loading staff:", error);
-    });
+        </article>`;
+      })
+      .join("");
+  })
+  .catch((error) => {
+    console.error("Error loading staff:", error);
+  });
+
+// PPricing
+const pricingData = [
+  {
+    type: "Basic",
+    heading: "Day care",
+    price: "$150",
+    btnClass: "",
+    features: [
+      "Single room",
+      "Socialist Exercise",
+      "Custom Meals",
+      "Spa and Grooming",
+      "Exercise 2x",
+      "Custom Meals",
+      "Grooming 2x",
+    ],
+    active: true,
+  },
+  {
+    type: "Exclusive",
+    heading: "2X Care",
+    price: "$199",
+    btnClass: "btn--primary",
+    features: [
+      "Single room",
+      "Socialist Exercise",
+      "Custom Meals",
+      "Spa and Grooming",
+      "Exercise 2x",
+      "Custom Meals",
+      "Grooming 2x",
+    ],
+    active: false,
+  },
+  {
+    type: "Platinum",
+    heading: "4X Care",
+    price: "$299",
+    btnClass: "",
+    features: [
+      "Single room",
+      "Socialist Exercise",
+      "Custom Meals",
+      "Spa and Grooming",
+      "Exercise 2x",
+      "Custom Meals",
+      "Grooming 2x",
+    ],
+    active: false,
+  },
+];
+
+fetch("../../components/pricing.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("pricing").innerHTML = data;
+
+    const pricingList = document.querySelector(".pricing__list");
+    pricingList.innerHTML = pricingData
+      .map((item) => {
+        return `
+      <article class= "pricing__item " >
+        <p class ="pricing__item--type" > ${item.type}</p>
+        <h3 class="pricing__item--heading">${item.heading}</h3>
+        <p class="pricing__item--price">${item.price}</p>
+        <button class="btn pricing__item--btn">Purchase Now</button>
+         <ul class="pricing__item--list">
+        ${item.features.map((feature) => `
+          <li class="pricing__item--small">${feature}</li>`).join("")
+        }
+        </ul>
+      </article>`;
+      })
+      .join("");
+  });
