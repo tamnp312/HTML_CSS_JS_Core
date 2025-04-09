@@ -149,3 +149,52 @@ fetch("../../components/services.html")
   .catch((error) => {
     console.error("Error loading services:", error);
   });
+
+
+  // staff 
+  const staffData = [
+    {
+      id: 1,
+      imgSrc: "./assets/img/staff01.png",
+      title: "Pet Trainer",
+      name: "Meghan Samit"
+    },
+    {
+      id: 2,
+      imgSrc: "./assets/img/staff02.png",
+      title: "Veterinarian",
+      name: "Alissa Silva"
+    },
+    {
+      id: 3,
+      imgSrc: "./assets/img/staff03.png",
+      title: "Veterinarian",
+      name: "Cindy Harris"
+    },
+    {
+      id: 4,
+      imgSrc: "./assets/img/staff04.png",
+      title: "Animal Caretaker",
+      name: "Lucas Tony"
+    }
+  ];
+  fetch("../../components/staff.html")
+    .then( response => response.text())
+    .then (data => {
+      document.getElementById("staff").innerHTML = data; 
+
+      const staffListList = document.querySelector(".staff__list");
+      staffListList.innerHTML = staffData.map( (staff) => {
+        return `
+        <article class = staff__item> 
+          <figure class ="staff__item--img">
+            <img src="${staff.imgSrc}" alt="${staff.name}" class="staff__img">
+          </figure>
+          <p class = "staff__item--title">${staff.title}</p>
+          <h3 class = "staff__item--name" >${staff.name}</h3>
+        </article>`
+      }).join("");
+    })
+    .catch(error => {
+      console.error("Error loading staff:", error);
+    });

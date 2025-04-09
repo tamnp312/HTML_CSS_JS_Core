@@ -652,3 +652,116 @@ a{
     color: #ff5b2e;
     border-color: currentColor;
 }
+
+
+/* staff */ 
+#staff {
+    margin-top: 130px;
+}
+.staff__top {
+    text-align: center;
+}
+.staff__desc { 
+    color: #5E6085;
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1; /* 100% */   
+    margin-bottom: 15px;
+}
+.staff__list { 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    margin-top: 60px;
+    column-gap: 35px;
+}
+.staff__item {
+    text-align: center;
+}
+.staff__item--img {
+    position: relative;
+    margin: 0 15px;
+    border-radius: 130px;
+}
+
+.staff__item--img::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: inherit;
+    width: 100%;
+    height: 95%;
+    z-index: -1;
+    background: linear-gradient(180deg, #90ccff 0%, #59a8eb 95.96%);;
+}
+
+.staff__item--img::after {
+    content: "";
+    background: url(../img/staff_decor01.png) no-repeat bottom / 100%;
+    position: absolute;
+    width: calc(100% + 35px);
+    height: 100%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.staff__item:nth-child(2) .staff__item--img::before {
+    background: linear-gradient(180deg, #FF997E 0%, #F3752E 100%);
+}
+.staff__item:nth-child(2) .staff__item--img::after {
+    background-image: url(../img/staff_decor02.png);
+    background-position: 0 15px;
+}
+
+.staff__item:nth-child(3) .staff__item--img::before {
+    background: linear-gradient(180deg, #FABF3E 0%, #FFA14A 100%);
+}
+
+.staff__item:nth-child(3) .staff__item--img::after {
+    background-image: url(../img/staff_decor03.png);
+}
+
+.staff__item:nth-child(4) .staff__item--img::before {
+    background: linear-gradient(180deg, #5BD6E2 0%, #00A7CC 100%);
+}
+
+.staff__item:nth-child(4) .staff__item--img::after {
+    background-image: url(../img/staff_decor04.png);
+    background-position: 0 15px;
+}
+.staff__img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    border-radius: inherit;
+}
+
+.staff__item--title {
+    margin-top: 34px;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #656689;
+}
+
+.staff-item__name {
+    margin-top: 14px;
+    font-weight: 600;
+    font-size: 2.2rem;
+    line-height: 1;
+    color: #000958;
+}
+
+.staff__cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+}
+
+.staff__cta {
+    min-width: 193px;
+    color: #ff5b2e;
+    border-color: currentColor;
+}
