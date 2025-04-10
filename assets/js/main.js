@@ -119,7 +119,7 @@ const serviceItemsData = [
   },
 ];
 
-fetch("../../components/services.html")
+fetch("./components/services.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("services").innerHTML = data;
@@ -183,7 +183,7 @@ const staffData = [
     name: "Lucas Tony",
   },
 ];
-fetch("../../components/staff.html")
+fetch("./components/staff.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("staff").innerHTML = data;
@@ -258,7 +258,7 @@ const pricingData = [
   },
 ];
 
-fetch("../../components/pricing.html")
+fetch("./components/pricing.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("pricing").innerHTML = data;
@@ -314,7 +314,7 @@ fetch("../../components/pricing.html")
     ],
     activeDot: 1 // Indicates which review is currently active
   };
-  fetch("../../components/review.html")
+  fetch("./components/review.html")
     .then((response) => response.text())
     .then((data) => { 
       document.getElementById("review").innerHTML = data;
