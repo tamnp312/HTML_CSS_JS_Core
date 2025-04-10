@@ -281,3 +281,59 @@ fetch("../../components/pricing.html")
       })
       .join("");
   });
+
+
+  //  Review 
+  const reviewsData = {
+    sectionTitle: "Our Reviews",
+    reviews: [
+      {
+        id: 1,
+        image: "./assets/img/review-01.png",
+        quote: "It was very comforting to recieve a text and pics each day about our pets and how they were doing. It was also nice that my pets were in the comfortable environment of their own home and received playfull attention from our pet sitters as well. Thanks so much!",
+        author: "Karla Deras"
+      },
+      {
+        id: 2,
+        image: "./assets/img/review-01.png",
+        quote: "It was very comforting to recieve a text and pics each day about our pets and how they were doing. It was also nice that my pets were in the comfortable environment of their own home and received playfull attention from our pet sitters as well. Thanks so much!",
+        author: "Karla Deras"
+      },
+      {
+        id: 3,
+        image: "./assets/img/review-01.png",
+        quote: "It was very comforting to recieve a text and pics each day about our pets and how they were doing. It was also nice that my pets were in the comfortable environment of their own home and received playfull attention from our pet sitters as well. Thanks so much!",
+        author: "Karla Deras"
+      },
+      {
+        id: 4,
+        image: "./assets/img/review-01.png",
+        quote: "It was very comforting to recieve a text and pics each day about our pets and how they were doing. It was also nice that my pets were in the comfortable environment of their own home and received playfull attention from our pet sitters as well. Thanks so much!",
+        author: "Karla Deras"
+      }
+    ],
+    activeDot: 1 // Indicates which review is currently active
+  };
+  fetch("../../components/review.html")
+    .then((response) => response.text())
+    .then((data) => { 
+      document.getElementById("review").innerHTML = data;
+      
+      const reviewList = document.querySelector(".review__list");
+      reviewList.innerHTML = reviewsData.reviews.map((review) => {  
+        return `
+          <article class="review__item">
+            <figure class="review-item__media="${review.author}" class="review-item__img">
+            </figure>
+            <section class="review-item__content" >
+            <h2 class="section__heading">Our Reviews </h2>
+            <blockquote class="review-item__quote">${review.quote} </blockquote>
+            <h3 class="review__item--author">${review.author}</h3>
+            </section>
+            
+          </article>`;
+      }
+      ).join(""); 
+
+
+    })

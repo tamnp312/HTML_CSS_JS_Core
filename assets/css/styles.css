@@ -928,3 +928,14 @@ a{
     content: url(../icon/Check.svg);
     margin-right: 12px;
 }
+
+/* Review */ 
+#review {
+    margin-top: 130px;
+}
+.review__inner {
+    display: flex;
+    align-items: center;
+    column-gap: 44px;
+
+}
